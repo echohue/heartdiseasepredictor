@@ -113,6 +113,7 @@ cv_scores = cross_val_score(model, X_train, Y_train, cv=5, scoring='accuracy')
 with st.spinner("Training the model..."):
     model.fit(X_train, Y_train)
     Y_pred_test = model.predict(X_test)
+    best_model = model.best_estimator_ if hasattr(model, "best_estimator_") else model
     Y_pred_user_input = model.predict(user_input)
 # Calculate evaluation metrics for the actual test set
 accuracy_test = accuracy_score(Y_test, Y_pred_test)
