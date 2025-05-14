@@ -108,10 +108,12 @@ elif model_type == "GBM":
 
 # Cross-validation
 cv_scores = cross_val_score(model, X_train, Y_train, cv=5, scoring='accuracy')
-model.fit(X_train, Y_train)
-Y_pred_test = model.predict(X_test)
-Y_pred_user_input = model.predict(user_input)
+with st.spinner("Training the model..."):
 
+with st.spinner("Training the model..."):
+    model.fit(X_train, Y_train)
+    Y_pred_test = model.predict(X_test)
+    Y_pred_user_input = model.predict(user_input)
 # Calculate evaluation metrics for the actual test set
 accuracy_test = accuracy_score(Y_test, Y_pred_test)
 precision_test = precision_score(Y_test, Y_pred_test)
