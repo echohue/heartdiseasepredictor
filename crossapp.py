@@ -108,7 +108,7 @@ elif model_type == "GBM":
 
 # Cross-validation
 cv_scores = cross_val_score(model, X_train, Y_train, cv=5, scoring='accuracy')
-with st.spinner("Training the model..."):
+
 
 with st.spinner("Training the model..."):
     model.fit(X_train, Y_train)
